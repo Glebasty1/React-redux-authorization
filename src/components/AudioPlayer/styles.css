@@ -1,0 +1,14 @@
+.volumeInput {
+    width: 100px;
+    display: inline-block;
+    padding-left: 20px;
+}
+
+.songDurationInput {
+    width: 500px;
+    margin: auto;
+}
+
+.images {
+    margin-right: 10px;
+}
