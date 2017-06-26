@@ -5,8 +5,9 @@
 }
 
 .songDurationInput {
-    width: 500px;
-    margin: auto;
+    width: 400px;
+    display: inline-block;
+    padding-right: 20px;
 }
 
 .images {

@@ -2,16 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
 
-/*import AudioList from '../AudioList/AudioList';*/
 import AudioPlayer from '../AudioPlayer/AudioPlayer';
 
 class AudioPlayerPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.retrieveSongRequest();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log('componentWillReceiveProps', this.props, nextProps);
   }
 
   render() {
@@ -23,16 +22,11 @@ class AudioPlayerPage extends React.Component {
         this.props.songs && this.props.songs.length > 0 ?
           <div>
             <AudioPlayer
-              songList={this.props.songs}
+              songs={this.props.songs}
               currentSongSrc={this.props.currentSongSrc}
               currentSongName={this.props.currentSongName}
-              songs={this.props.songs}
               changeSongRequest={this.props.changeSongRequest}
             />
-{/*            <AudioList
-              songs={this.props.songs}
-              changeSongRequest={this.changeAudio}
-            />*/}
           </div>
           : null
         }
@@ -43,9 +37,10 @@ class AudioPlayerPage extends React.Component {
 
 AudioPlayerPage.propTypes = {
   songs: PropTypes.arrayOf(PropTypes.object),
+  currentSongSrc: PropTypes.string,
   changeSongRequest: PropTypes.func,
-  nextSongRequest: PropTypes.func,
   currentSongName: PropTypes.string,
+  retrieveSongRequest: PropTypes.func,
 };
 
 export default AudioPlayerPage;
